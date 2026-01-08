@@ -299,9 +299,6 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Countdown Timer */}
-        <CountdownTimer />
-
         {/* Email Form */}
         <EmailForm />
 
