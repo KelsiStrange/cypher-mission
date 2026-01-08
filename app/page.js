@@ -76,68 +76,7 @@ function GlitchText({ text, className }) {
   );
 }
 
-// Animated countdown timer
-function CountdownTimer() {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  useEffect(() => {
-    // Set launch date to 30 days from now
-    const launchDate = new Date();
-    launchDate.setDate(launchDate.getDate() + 30);
-
-    const timer = setInterval(() => {
-      const now = new Date();
-      const difference = launchDate.getTime() - now.getTime();
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        });
-      }
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const timeUnits = [
-    { label: 'Days', value: timeLeft.days },
-    { label: 'Hours', value: timeLeft.hours },
-    { label: 'Minutes', value: timeLeft.minutes },
-    { label: 'Seconds', value: timeLeft.seconds },
-  ];
-
-  return (
-    <div className="flex justify-center gap-3 sm:gap-6 mt-8">
-      {timeUnits.map((unit, index) => (
-        <div
-          key={unit.label}
-          className="relative group"
-          style={{ animationDelay: `${index * 0.1}s` }}
-        >
-          <div className="gradient-border rounded-lg sm:rounded-xl p-3 sm:p-5 min-w-[60px] sm:min-w-[90px] text-center backdrop-blur-sm transition-all duration-300 group-hover:scale-105">
-            <div className="font-cyber text-2xl sm:text-4xl font-bold text-cyber-blue glow-text tabular-nums">
-              {String(unit.value).padStart(2, '0')}
-            </div>
-            <div className="text-[10px] sm:text-xs uppercase tracking-widest text-gray-400 mt-1 sm:mt-2 font-medium">
-              {unit.label}
-            </div>
-          </div>
-          {/* Corner accents */}
-          <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-cyber-blue/50 rounded-tl"></div>
-          <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-cyber-blue/50 rounded-br"></div>
-        </div>
-      ))}
-    </div>
-  );
-}
+// Countdown timer removed per user request
 
 // Email form component
 function EmailForm() {
