@@ -269,16 +269,36 @@ export default function Home() {
 
       {/* Main content */}
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 py-16 sm:py-24 text-center">
-        {/* Logo */}
-        <div className="animate-float mb-8 sm:mb-12" data-testid="logo-container">
-          <Image
-            src="/logo.png"
-            alt="CypherMission Logo"
-            width={400}
-            height={100}
-            className="mx-auto w-64 sm:w-80 md:w-96 h-auto drop-shadow-[0_0_25px_rgba(79,195,247,0.3)]"
-            priority
-          />
+        {/* Logo with glitch effect */}
+        <div className="logo-glitch-container mb-8 sm:mb-12" data-testid="logo-container">
+          <div className="logo-glitch">
+            <Image
+              src="/logo.png"
+              alt="CypherMission Logo"
+              width={500}
+              height={125}
+              className="mx-auto w-80 sm:w-96 md:w-[500px] h-auto"
+              priority
+            />
+            <div className="logo-glitch-layers">
+              <Image
+                src="/logo.png"
+                alt=""
+                width={500}
+                height={125}
+                className="glitch-layer glitch-layer-1"
+                aria-hidden="true"
+              />
+              <Image
+                src="/logo.png"
+                alt=""
+                width={500}
+                height={125}
+                className="glitch-layer glitch-layer-2"
+                aria-hidden="true"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Headline */}
