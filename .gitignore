@@ -4,3 +4,7 @@ node_modules
 .vercel
 dist
 build
+-e 
+# Environment files
+*.env
+*.env.*
